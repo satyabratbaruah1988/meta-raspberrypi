@@ -1,0 +1,5 @@
+fdt_addr=0x01000000
+kernel_addr_r=0x02000000
+fdt addr \${fdt_addr} && fdt get value bootargs /chosen bootargs
+     fatload mmc 0:1 \${kernel_addr_r} kernel8.img
+     bootm \${kernel_addr_r} - \${fdt_addr}
